@@ -3,9 +3,13 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} MUM Kämpfelbach.
-	
-	<!-- <div class="social-links">
+  &copy; {today.getFullYear()} MUM Kämpfelbach.
+  <br />
+  <a href="/legal/legal-notice">Impressum</a> | <a href="/legal/privacy-policy"
+    >Datenschutzerklärung</a
+  >
+
+  <!-- <div class="social-links">
 		<a href="https://m.webtoo.ls/@astro" target="_blank">
 			<span class="sr-only">Follow Astro on Mastodon</span>
 			<svg
@@ -41,23 +45,23 @@ const today = new Date();
 	</div> -->
 </footer>
 <style>
-	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
-		text-align: center;
-	}
-	.social-links {
-		display: flex;
-		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
-	}
-	.social-links a {
-		text-decoration: none;
-		color: rgb(var(--gray));
-	}
-	.social-links a:hover {
-		color: rgb(var(--gray-dark));
-	}
+  footer {
+    padding: 2em 1em 6em 1em;
+    background: linear-gradient(var(--gray-gradient)) no-repeat;
+    color: rgb(var(--gray));
+    text-align: center;
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+  }
+  .social-links a {
+    text-decoration: none;
+    color: rgb(var(--gray));
+  }
+  .social-links a:hover {
+    color: rgb(var(--gray-dark));
+  }
 </style>
