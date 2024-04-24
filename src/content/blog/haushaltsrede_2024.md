@@ -1,5 +1,5 @@
 ---
-title: Haushaltsrede 2024' 
+title: 'Haushaltsrede 2024' 
 description: 'Haushaltsrede 2024
 für die Fraktion Liste Mensch und Umwelt Kämpfelbach'
 pubDate: 'Apr 24 2024'
