@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
+import "../styles/landing_page.css";
 
 // get newest 2 posts
 const posts = (await getCollection("blog"))
