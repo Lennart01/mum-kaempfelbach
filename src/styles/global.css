@@ -127,13 +127,43 @@ hr {
 	border-top: 1px solid rgb(var(--gray-light));
 }
 @media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
+    body {
+        font-size: 18px;
+    }
+    main {
+        width: auto;
+        padding: 1em;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    h3 {
+        font-size: 1.75em;
+    }
+    h4 {
+        font-size: 1.5em;
+    }
+    h5 {
+        font-size: 1.25em;
+    }
+    img {
+        border-radius: 4px;
+    }
 }
+
+/* Consider adding another breakpoint for even smaller screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+}
+
 
 .sr-only {
 	border: 0;
