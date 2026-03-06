@@ -4,28 +4,97 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
 import "../styles/landing_page.css";
 
-// get newest 2 posts
+// get newest 3 posts
 const posts = (await getCollection("blog"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 2);
+  .slice(0, 3);
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      .hero-section {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding: 4rem 2rem;
+        background: var(--surface);
+        border-radius: 24px;
+        box-shadow: var(--box-shadow);
+        border: 1px solid var(--border);
+      }
+      .hero-section h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+        letter-spacing: -0.03em;
+      }
+      .hero-section p {
+        font-size: 1.25rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .join-section {
+        margin-top: 5rem;
+        text-align: center;
+        padding: 4rem 2rem;
+        background: var(--primary);
+        color: white;
+        border-radius: 24px;
+        box-shadow: 0 20px 25px -5px rgba(21, 128, 61, 0.3);
+      }
+      .join-section h3 {
+        color: white;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+      }
+      .join-section p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+      }
+      .join-btn {
+        background: white;
+        color: var(--primary);
+        padding: 1rem 2rem;
+        border-radius: 999px;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+      .join-btn:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        color: var(--primary-hover);
+        text-decoration: none;
+      }
+
+      @media (max-width: 720px) {
+        .hero-section h1 { font-size: 2.5rem; }
+        .hero-section { padding: 3rem 1.5rem; }
+      }
+    </style>
   </head>
   <body>
     <Header />
     <main>
-      <h1>Herzlich willkommen!</h1>
-      <h3>Aktuelle Beiträge</h3>
-      <ul>
+      <section class="hero-section">
+        <h1>Herzlich willkommen!</h1>
+        <p>Wir engagieren uns für eine umweltschonende und zukunftsorientierte Entwicklung in Bilfingen und Ersingen.</p>
+      </section>
+
+      <h3 style="margin-bottom: 2rem;">Aktuelle Beiträge</h3>
+      <ul class="post-list">
         {
           posts.map((post) => (
-            <div>
+            <li>
               <a href={`/blog/${post.slug}/`}>
                 <img
                   width={720}
@@ -33,21 +102,21 @@ const posts = (await getCollection("blog"))
                   src={post.data.heroImage}
                   alt=""
                 />
-                <h4>{post.data.title}</h4>
+                <h4 class="title">{post.data.title}</h4>
+                <p class="date"><FormattedDate date={post.data.pubDate} /></p>
               </a>
-              <br />
-              <hr />
-              <br />
-            </div>
+            </li>
           ))
         }
       </ul>
-      <p>
-        Haben wir dein Interesse geweckt? Dann mach gerne mit.
-        <a href="/pdf/Beitrittserklaerung_MuM_Kaempfelbach.pdf">
+
+      <section class="join-section">
+        <h3>Haben wir dein Interesse geweckt?</h3>
+        <p>Dann mach gerne mit und unterstütze unsere Arbeit für die Gemeinde Kämpfelbach.</p>
+        <a class="join-btn" href="/pdf/Beitrittserklaerung_MuM_Kaempfelbach.pdf">
           📄 Beitrittserklärung
         </a>
-      </p>
+      </section>
     </main>
     <Footer />
   </body>

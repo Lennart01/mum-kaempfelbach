@@ -1,172 +1,124 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
+	--accent: #10b981;
+	--accent-dark: #047857;
+	--foreground: #0f172a;
+	--background: #f8fafc;
+	--surface: #ffffff;
+	--text-muted: #64748b;
+	--border: #e2e8f0;
+	--primary: #15803d; /* Forest-like green */
+	--primary-hover: #166534;
+	
+	--box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+	--box-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	--transition: 0.3s ease;
 }
-@font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-regular.woff') format('woff');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-bold.woff') format('woff');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
+
 body {
-	font-family: 'Atkinson', sans-serif;
+	font-family: 'Inter', -apple-system, system-ui, sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
+	background: var(--background);
+	color: var(--foreground);
+	font-size: 18px;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
 }
+
 main {
-	width: 720px;
+	width: 800px;
 	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
+	margin: 0 auto;
+	padding: 8em 1em 4em; /* Give space for fixed header */
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 0.5em 0;
+	color: var(--foreground);
 	line-height: 1.2;
-}
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
-}
-strong,
-b {
 	font-weight: 700;
+	letter-spacing: -0.02em;
 }
-a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
-}
+
+h1 { font-size: 3em; font-weight: 800; }
+h2 { font-size: 2.25em; }
+h3 { font-size: 1.75em; }
+h4 { font-size: 1.25em; }
+
 p {
-	margin-bottom: 1em;
+	margin-bottom: 1.5em;
+	color: #334155;
 }
-.prose p {
-	margin-bottom: 2em;
+
+a {
+	color: var(--primary);
+	text-decoration: none;
+	transition: color 0.2s ease;
 }
-textarea {
-	width: 100%;
-	font-size: 16px;
+
+a:hover {
+	color: var(--primary-hover);
+	text-decoration: underline;
 }
-input {
-	font-size: 16px;
-}
-table {
-	width: 100%;
-}
+
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
+	border-radius: 12px;
+	display: block;
 }
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
+
+.button, a.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.75rem 1.5rem;
+	background-color: var(--primary);
+	color: white;
+	border-radius: 999px;
+	font-weight: 600;
+	transition: var(--transition);
+	text-decoration: none;
+	box-shadow: var(--box-shadow);
 }
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
+
+.button:hover {
+	background-color: var(--primary-hover);
+	transform: translateY(-2px);
+	box-shadow: var(--box-shadow-hover);
+	text-decoration: none;
 }
-pre > code {
-	all: unset;
-}
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0px;
-	font-size: 1.333em;
-}
+
 hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-    body {
-        font-size: 18px;
-		text-align: center;
-    }
-    main {
-        width: 100%;
-		max-width: 100%;
-        padding: 1em;
-		box-sizing: border-box;
-    }
-    h1 {
-        font-size: 2.5em;
-    }
-    h2 {
-        font-size: 2em;
-    }
-    h3 {
-        font-size: 1.75em;
-    }
-    h4 {
-        font-size: 1.5em;
-    }
-    h5 {
-        font-size: 1.25em;
-    }
-    img {
-        border-radius: 4px;
-    }
+	border-top: 1px solid var(--border);
+	margin: 2rem 0;
 }
 
-/* Consider adding another breakpoint for even smaller screens */
-@media (max-width: 480px) {
-    body {
-        font-size: 16px;
-    }
-    h1 {
-        font-size: 2em;
-    }
+input, textarea {
+	font-family: inherit;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 0.75rem;
+	font-size: 1rem;
+	width: 100%;
+	box-sizing: border-box;
 }
 
+.card {
+	background: var(--surface);
+	border-radius: 16px;
+	border: 1px solid var(--border);
+	box-shadow: var(--box-shadow);
+	overflow: hidden;
+	transition: var(--transition);
+}
+
+.card:hover {
+	box-shadow: var(--box-shadow-hover);
+	transform: translateY(-4px);
+}
 
 .sr-only {
 	border: 0;
@@ -176,12 +128,13 @@ hr {
 	height: 1px;
 	width: 1px;
 	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
 	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
 	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
 	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+	h1 { font-size: 2.5em; }
+	main { padding: 6em 1em 3em; }
 }

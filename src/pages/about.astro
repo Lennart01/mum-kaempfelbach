@@ -2,13 +2,109 @@
 import Layout from "../layouts/BlogPost.astro";
 ---
 
-<!-- Add a hero image using   heroImage="/blog-placeholder-about.jpg" -->
 <Layout
   title="Über uns"
   description="Geschichte und Hintergrundinformationen zu Mensch & Umwelt"
   pubDate={new Date("April 22, 2024")}
 >
-  <article>
+  <style>
+    .contact-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      border-radius: 20px;
+      margin: 2rem 0;
+      box-shadow: var(--box-shadow);
+    }
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      list-style: none;
+      padding: 0;
+      margin-top: 2rem;
+    }
+    .profile-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .profile-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    .profile-card img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      border: 4px solid var(--background);
+      box-shadow: var(--box-shadow);
+    }
+    .profile-name {
+      margin-bottom: 0.25rem;
+      color: var(--foreground);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .profile-meta {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .profile-quote {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text-muted);
+      text-align: left;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+    .contact-links a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      background: var(--background);
+      border-radius: 12px;
+      font-size: 0.95em;
+      font-weight: 600;
+      transition: var(--transition);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .contact-links a:hover {
+      background: var(--surface);
+      color: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 720px) {
+      .profile-grid { grid-template-columns: 1fr; }
+      .contact-block { padding: 1.5rem; }
+    }
+  </style>
+
+  <div class="contact-block">
     <h3>Mensch & Umwelt Kämpfelbach e. V.</h3>
     <p>
       Unser Verein wurde von kommunalpolitisch interessierten Bürgerinnen und
@@ -21,81 +117,84 @@ import Layout from "../layouts/BlogPost.astro";
       gefördert und gepflegt.
     </p>
     <p>
-      Christoph Krauch ist 1. Vorstand und Christine Fischer hat das Amt des 2.
-      Vorstandes inne.
+      <strong>Vorstand:</strong> Christoph Krauch (1. Vorstand) und Christine Fischer (2. Vorstand)
     </p>
-    <a href="mailto:c.krauch@mum-kaempfelbach.de">Email an den 1. Vorstand</a>
-  </article>
+    <a class="button" href="mailto:c.krauch@mum-kaempfelbach.de" style="margin-top: 1rem;">Email an den 1. Vorstand</a>
+  </div>
+  
   <br />
   <hr />
   <br />
+  
   <article>
-    <h3>Liste Mensch & Umwelt (MuM) Kämpfelbach</h3>
+    <h3 style="margin-bottom: 1.5rem;">Liste Mensch & Umwelt (MuM) Kämpfelbach</h3>
     <p>
       "MuM Kämpfelbach" war mit einer Unterbrechung schon seit 1994 mit jeweils
       zwei Vertreter/innen im Kämpfelbacher Gemeinderat aktiv. Seit 2019 ist die
       Liste mit drei Gemeinderätinnen vertreten.
     </p>
     <p>
-      Unter dem Motto "Global denken - lokal handeln" tritt die Liste für eine
-      nachhaltige Gemeindepolitik ein. Sie gestaltetet die Entwicklung von
-      Kämpfelbach im Auftrag ihrer WählerInnen konstuktiv und kritisch mit.
+      Unter dem Motto <strong>"Global denken - lokal handeln"</strong> tritt die Liste für eine
+      nachhaltige Gemeindepolitik ein. Sie gestaltet die Entwicklung von
+      Kämpfelbach im Auftrag ihrer WählerInnen konstruktiv und kritisch mit.
     </p>
-    <p>
+    <p style="margin-bottom: 2rem;">
       Die Förderung des Umweltbewusstseins und die Sensibilisierung der
       Bürgerinnen und Bürger für Umwelt- und Naturschutzthemen sind uns ein
       besonderes Anliegen.
     </p>
-    <a href="/pdf/MuM_Kaempfelbach_Schwerpunkte_Gemeindepolitik.pdf"
-      >Unsere Schwerpunkte der Gemeindepolitik</a
-    >
-    <br />
-    <br />
-    <h3>Unsere Gemeinderätinnen für Kämpfelbach</h3>
-    <ul>
-      <li>
-        <p>Christine Fischer, geb. 1965, 2 Kinder, Lehrerin</p>
-        <img src="/christine-fischer.jpg" alt="Christine Fischer" />
-        <p>
-          "An der Gestaltung der Zukunft unserer Gemeinde möchte ich aktiv
-          mitwirken. Eine zukunftsorientierte Dorfentwicklung und altersgerechte
-          Infrastruktur wie z.B. barrierefreier Zugang zum Bürgerhaus und eine
-          menschen- und umweltfreundliche Verkehrspolitik sowie attraktive
-          Angebote für junge Familien sind wichtige Aufgaben der nächsten Jahre.
-          Bildung und Betreuung sind mein Schwerpunkt und müssen sich an den
-          Bedürfnissen unserer Kinder ausrichten. Ich bin aktiv in unserer
-          Kirchengemeinde und unterstütze Flüchtlinge und AsylbewerberInnen in
-          Kämpfelbach."
-        </p>
-        <a href="mailto:c.fischer@mum-kaempfelbach.de"
-          >Email an Christine Fischer
-        </a>
-        <p>Telefon: 07231-1826033</p>
-      </li>
-      <li>
-        <p>Sigrid Bellitto, geb. 1961, verheiratet, 3 Kinder, Kauffrau:</p>
-        <img src="/sigrid-bellitto.jpg" alt="Sigrid Bellitto" />
-        <p>
-          "Ich möchte mich im Gemeinderat für die Erhaltung unserer schönen
-          Natur und eine familienfreundliche Politik einbringen, damit unsere
-          Gemeinde auch für nachfolgende Generationen attraktiv bleibt. Ich bin
-          aktives Mitglied im Naturheilverein Pforzheim, Hobbyimkerin, halte
-          Vorträge und berate über die Handhabung von Effektiven Mikroorganismen
-          in allen Lebensbereichen."
-        </p>
-        <a href="mailto:s.bellitto@mum-kaempfelbach.de">
-          Email an Sigrid Bellitto
-        </a>
-        <br />
-        <a href="https://www.bellitto.de">Homepage von Sigrid Bellitto </a>
-        <p>Telefon: 07232-13055</p>
-      </li>
-      <li>
-        <p>Martina Frey</p>
-        <img src="/martina-frey.jpg" alt="Martina Frey" />
-        <br />
-        <a href="mailto:martina-frey@gmx.de">Email an Martina Frey</a>
-      </li>
-    </ul>
+    <a class="button" href="/pdf/MuM_Kaempfelbach_Schwerpunkte_Gemeindepolitik.pdf" target="_blank">
+      Unsere Schwerpunkte der Gemeindepolitik (PDF)
+    </a>
+    
+    <div style="margin-top: 5rem;">
+      <h3 style="text-align: center; font-size: 2.25rem;">Unsere Gemeinderätinnen</h3>
+      <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">
+        Für Sie aktiv in Kämpfelbach. Sprechen Sie uns an!
+      </p>
+      
+      <ul class="profile-grid">
+        <li class="profile-card">
+          <img src="/christine-fischer.jpg" alt="Christine Fischer" onerror="this.src='/blog-placeholder-about.jpg';this.onerror='';" />
+          <div class="profile-name">Christine Fischer</div>
+          <div class="profile-meta">Lehrerin</div>
+          <div class="profile-quote">
+            "An der Gestaltung der Zukunft unserer Gemeinde möchte ich aktiv
+            mitwirken. Eine zukunftsorientierte Dorfentwicklung und altersgerechte
+            Infrastruktur sowie attraktive Angebote für junge Familien sind mir wichtig."
+          </div>
+          <div class="contact-links">
+            <a href="mailto:c.fischer@mum-kaempfelbach.de">✉️ Email senden</a>
+            <a href="tel:072311826033">📞 07231-1826033</a>
+          </div>
+        </li>
+        <li class="profile-card">
+          <img src="/sigrid-bellitto.jpg" alt="Sigrid Bellitto" onerror="this.src='/blog-placeholder-about.jpg';this.onerror='';" />
+          <div class="profile-name">Sigrid Bellitto</div>
+          <div class="profile-meta">Kauffrau</div>
+          <div class="profile-quote">
+            "Ich möchte mich im Gemeinderat für die Erhaltung unserer schönen
+            Natur und eine familienfreundliche Politik einbringen, damit unsere
+            Gemeinde auch für nachfolgende Generationen attraktiv bleibt."
+          </div>
+          <div class="contact-links">
+            <a href="mailto:s.bellitto@mum-kaempfelbach.de">✉️ Email senden</a>
+            <a href="https://www.bellitto.de" target="_blank">🌐 Zur Homepage</a>
+            <a href="tel:0723213055">📞 07232-13055</a>
+          </div>
+        </li>
+        <li class="profile-card">
+          <img src="/martina-frey.jpg" alt="Martina Frey" onerror="this.src='/blog-placeholder-about.jpg';this.onerror='';" />
+          <div class="profile-name">Martina Frey</div>
+          <div class="profile-meta">Gemeinderätin</div>
+          <div class="profile-quote">
+            Aktiv im Gemeinderat Kämpfelbach für ein lebenswertes und nachhaltiges Ersingen und Bilfingen.
+          </div>
+          <div class="contact-links">
+            <a href="mailto:martina-frey@gmx.de">✉️ Email senden</a>
+          </div>
+        </li>
+      </ul>
+    </div>
   </article>
 </Layout>

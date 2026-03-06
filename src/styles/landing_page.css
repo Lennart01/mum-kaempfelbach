@@ -1,64 +1,89 @@
-ul {
-display: flex;
-flex-wrap: wrap;
-gap: 2rem;
-list-style-type: none;
-margin: 0;
-padding: 0;
+ul.post-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
-ul li {
-width: calc(50% - 1rem);
+
+ul.post-list li * {
+    text-decoration: none;
+    transition: var(--transition);
 }
-ul li * {
-text-decoration: none;
-transition: 0.2s ease;
-}
-ul li:first-child {
-width: 100%;
-margin-bottom: 1rem;
-text-align: center;
-}
-ul li:first-child img {
-width: 100%;
-}
-ul li:first-child .title {
-font-size: 2.369rem;
-}
-ul li img {
-margin-bottom: 0.5rem;
-border-radius: 12px;
-}
-ul li a {
-display: block;
-}
-.title {
-margin: 0;
-color: rgb(var(--black));
-line-height: 1;
-}
-.date {
-margin: 0;
-color: rgb(var(--gray));
-}
-ul li a:hover h4,
-ul li a:hover .date {
-color: rgb(var(--accent));
-}
-ul a:hover img {
-box-shadow: var(--box-shadow);
-}
-@media (max-width: 720px) {
-ul {
-    gap: 0.5em;
-}
-ul li {
-    width: 100%;
+
+ul.post-list li:first-child {
+    grid-column: 1 / -1;
     text-align: center;
+    margin-bottom: 1rem;
 }
-ul li:first-child {
-    margin-bottom: 0;
+
+ul.post-list li:first-child img {
+    width: 100%;
+    max-height: 480px;
 }
-ul li:first-child .title {
-    font-size: 1.563em;
+
+ul.post-list li:first-child .title {
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
 }
+
+ul.post-list li img {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    object-fit: cover;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+}
+
+ul.post-list li a {
+    display: block;
+    border-radius: 16px;
+    padding: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+ul.post-list li a:hover {
+    background: var(--background);
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.title {
+    margin: 0 0 0.5rem 0;
+    color: var(--foreground);
+    line-height: 1.2;
+}
+
+.date {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+ul.post-list li a:hover .title {
+    color: var(--primary);
+}
+
+ul.post-list li a:hover img {
+    transform: scale(1.02);
+}
+
+@media (max-width: 720px) {
+    ul.post-list {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    ul.post-list li:first-child {
+        margin-bottom: 0;
+    }
+
+    ul.post-list li:first-child .title {
+        font-size: 1.75rem;
+    }
 }
