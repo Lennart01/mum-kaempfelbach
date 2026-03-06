@@ -6,12 +6,19 @@
 	--surface: #ffffff;
 	--text-muted: #64748b;
 	--border: #e2e8f0;
-	--primary: #15803d; /* Forest-like green */
+	--primary: #15803d;
+	/* Forest-like green */
 	--primary-hover: #166534;
-	
+
 	--box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 	--box-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 	--transition: 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
 body {
@@ -30,10 +37,15 @@ main {
 	width: 800px;
 	max-width: calc(100% - 2em);
 	margin: 0 auto;
-	padding: 8em 1em 4em; /* Give space for fixed header */
+	padding: 3em 1em 4em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	margin: 0 0 0.5em 0;
 	color: var(--foreground);
 	line-height: 1.2;
@@ -41,10 +53,22 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing: -0.02em;
 }
 
-h1 { font-size: 3em; font-weight: 800; }
-h2 { font-size: 2.25em; }
-h3 { font-size: 1.75em; }
-h4 { font-size: 1.25em; }
+h1 {
+	font-size: 3em;
+	font-weight: 800;
+}
+
+h2 {
+	font-size: 2.25em;
+}
+
+h3 {
+	font-size: 1.75em;
+}
+
+h4 {
+	font-size: 1.25em;
+}
 
 p {
 	margin-bottom: 1.5em;
@@ -69,7 +93,8 @@ img {
 	display: block;
 }
 
-.button, a.button {
+.button,
+a.button {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -96,7 +121,8 @@ hr {
 	margin: 2rem 0;
 }
 
-input, textarea {
+input,
+textarea {
 	font-family: inherit;
 	border: 1px solid var(--border);
 	border-radius: 8px;
@@ -135,6 +161,11 @@ input, textarea {
 }
 
 @media (max-width: 720px) {
-	h1 { font-size: 2.5em; }
-	main { padding: 6em 1em 3em; }
+	h1 {
+		font-size: 2.5em;
+	}
+
+	main {
+		padding: 2em 1em 3em;
+	}
 }
