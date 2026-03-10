@@ -169,3 +169,16 @@ textarea {
 		padding: 2em 1em 3em;
 	}
 }
+/* Accessibility enhancements */
+a:focus-visible,
+.button:focus-visible {
+	outline: 3px solid var(--primary);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+	outline: 2px solid var(--primary);
+	outline-offset: 1px;
+}
